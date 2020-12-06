@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.div1 {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 3px solid #73AD21;
+}
+
+.div2 {
+  border: 1px solid red;
+}
+
+.div3 {
+  float: right;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 3px solid #73AD21;
+}
+
+.div4 {
+  border: 1px solid red;
+  clear: right;
+}
+</style>
+</head>
+<body>
+
+<h2>Không dùng Clear</h2>
+<div class="div1"><img src="qua-nho.jpg" alt="Quả nho" style="width:100px;
+height:100px"></div>
+<div class="div2">div2 nằm sau div1 trong code HTML. Tuy nhiên, vì div1 float 
+sang trái nên văn bản trong div2 trôi xung quanh div1.</div>
+<br><br><br><br>
+
+<h2>Sử dụng Clear</h2>
+<div class="div3"><img src="qua-nho.jpg" alt="Quả nho" style="width:100px;
+height:100px"></div>
+<div class="div4">Ví dụ này sử dụng clear: left; chuyển div4 xuống dưới div3 
+đang float, nghĩa là clear các phần tử tràn vào phía bên trái.</div>
+
+</body>
+</html>

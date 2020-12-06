@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  border: 3px solid #4CAF50;
+  padding: 5px;
+}
+
+.img1 {
+  float: right;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.img2 {
+  float: right;
+}
+</style>
+</head>
+<body>
+
+<p>Trong ví dụ này, hình ảnh đang được float vào cao hơn thành phần chứa nó, 
+do đó bị tràn ra bên ngoài:</p>
+
+<div>
+<img class="img1" src="float-qua-nho.jpg" alt="Quả nho" width="170" height="170">
+Nho là một loại quả mọng lấy từ các loài cây thân leo thuộc chi Nho (Vitis). 
+Quả nho mọc thành chùm từ 6 đến 300 quả, chúng có màu đen, lam, vàng, lục, 
+đỏ-tía hay trắng.
+</div>
+
+<p style="clear:right">Sử dụng class clearfix với giá trị overflow: auto để 
+khắc phục:</p>
+
+<div class="clearfix">
+<img class="img2" src="float-qua-nho.jpg" alt="Quả nho" width="170" height="170">
+Nho là một loại quả mọng lấy từ các loài cây thân leo thuộc chi Nho (Vitis). 
+Quả nho mọc thành chùm từ 6 đến 300 quả, chúng có màu đen, lam, vàng, lục, 
+đỏ-tía hay trắng. 
+</div>
+
+</body>
+</html>

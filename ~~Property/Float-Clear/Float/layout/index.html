@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<h2>Bố cục hình ảnh đặt cạnh nhau</h2>
+<p>Float hình ảnh cạnh nhau:</p>
+
+<div class="clearfix">
+  <div class="img-container">
+  <img src="flowers-1.jpg" alt="Beautiful flowers 1" style="width:100%">
+  </div>
+  <div class="img-container">
+  <img src="flowers-2.jpg" alt="Beautiful flowers 2" style="width:100%">
+  </div>
+  <div class="img-container">
+  <img src="flowers-3.jpg" alt="Beautiful flowers 3" style="width:100%">
+  </div>
+</div>
+
+<p>Sử dụng clearfix để xử lý layout flow và add thêm thuộc tính box-sizing 
+để kích thước box không thay đổi nếu có bổ sung thêm padding và border. Bạn 
+có thể thử bỏ thuộc tính này để xem rõ hiệu quả.</p>
+
+</body>
+</html>

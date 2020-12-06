@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #333;
+    color: #fff;
+    line-height: 1.6;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.containerz{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.navbar ul{
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: center;
+}
+
+.navbar ul li{
+    margin: 0 1rem;
+    padding: 1rem;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #f4f4f4;
+}
+
+.navbar ul li a:hover{
+    color: lightgreen;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: center;
+}
+
+section h1{
+    font-size: 4rem;
+}
+
+section p{
+    font-size: 1.5rem;
+}
+
+section#home{
+    background: url('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials.jpg') no-repeat center center/cover ;
+}
+
+section#about{
+    background: url('https://www.stkconf.org/wp-content/uploads/2018/10/Web-Page-Background-Color.jpg') no-repeat center center/cover ;
+}
+
+section#service{
+    background: url('https://img.freepik.com/free-photo/multicolored-paper-background_23-2148182446.jpg?size=626&ext=jpg&ga=GA1.2.1499861771.1600214400') no-repeat center center/cover ;
+}
+
+section#contact{
+    background: url('https://i2.wp.com/www.bannerswith.com/wp-content/uploads/2019/04/Background-Color-58.jpg?fit=1200%2C675&ssl=1') no-repeat center center/cover ;
+}
+
+
+

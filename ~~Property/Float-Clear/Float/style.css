@@ -1,0 +1,18 @@
+.left{
+    width: 100px;
+    height: 100px;
+    background-color: crimson;
+    float: left;
+}
+.right{
+    width: 100px;
+    height: 100px;
+    background-color: crimson;
+    float: right;
+}
+.none{
+    width: 100px;
+    height: 100px;
+    background-color: crimson;
+    float: none;
+}

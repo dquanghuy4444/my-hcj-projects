@@ -1,0 +1,77 @@
+.static{
+    width: 300px;
+    height: 300px;
+    background-color: chartreuse;
+    position: static;
+    top: 100px;
+    left: 100px;
+    z-index: -1;
+}
+.relative{
+    width: 300px;
+    height: 300px;
+    background-color: chartreuse;
+    position: relative;
+    top: 100px;
+    left: 100px;
+    z-index: -1;
+}
+
+.parent{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(184, 27, 87);
+    position: relative;
+
+}
+
+.absolute{
+    width: 300px;
+    height: 300px;
+    background-color: chartreuse;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 100;
+}
+
+.fixed{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(185, 153, 136);
+    position: fixed;
+    top: 100px;
+    right: 100px;
+    z-index: -1;
+    padding: 100px;
+}
+
+.temp{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(78, 83, 72);
+    z-index: 110;
+    position: relative;
+}
+
+.sticky1{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(159, 204, 104);
+    position: sticky;
+    top: 50px;
+    margin:50px 500px;
+    padding: 100px;
+    z-index: 1111;
+}
+
+.sticky2{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(159, 204, 104);
+    position: sticky;
+    bottom: 10px;
+    margin:50px 400px;
+    padding: 100px;
+    z-index: 1111;
+}

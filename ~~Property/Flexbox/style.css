@@ -1,0 +1,22 @@
+.containerz{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px 100px;
+}
+
+
+.child{
+    width: 28%;
+    height: 300px;
+    margin: 20px;
+    background-color: rgb(97, 116, 97);
+    font-size: 45px;
+    text-align: center;
+}
+
+/* .containerz > div {
+    flex: 1;
+} */

@@ -1,0 +1,29 @@
+span{
+    background-color: blueviolet;
+    z-index: 999;
+}
+
+.block{
+    display: block;
+    padding: 1px;
+    margin: 100px;
+    width: 10px;
+}
+
+.inline{
+    background-color: lightblue;
+    width: 100px;
+    height: 100px;
+    padding: 50px;
+    margin: 50px 0;
+    z-index: 0;
+}
+
+.inline-block{
+    display: inline-block;
+    background-color: lightblue;
+    width: 50%;
+    padding: 10px;
+    margin: 30px;
+    height: 100px;
+}
