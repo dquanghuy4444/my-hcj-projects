@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frosted Panel Demo</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/loading.css">
+
+	<style type="text/css">
+		#doc-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: 0;
+			background: rgb(249, 249, 250);
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="loading" class="flex-center-col">
+		<div class="page-loading__icon"></div>
+	</div>
+
+	<script type="text/javascript">
+		var loading = document.querySelector('#loading');
+
+		window.addEventListener('message', function(event) {
+			if (event.data === 'hideLoad') {
+				loading.style.display = 'none';
+			}
+		}, false);
+	</script>
+
+	<iframe id="doc-wrapper" src="./app.html"></iframe>
+</body>
+</html>

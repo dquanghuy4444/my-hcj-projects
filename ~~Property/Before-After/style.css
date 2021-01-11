@@ -1,0 +1,55 @@
+h2 {
+    display: block;
+    margin: 50px;
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+}
+
+h2:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #e74c3c;
+    transition: .25s;
+    z-index: -1;
+}
+
+h2:hover:before {
+    width: 100%;
+}
+
+h3 {
+    display: block;
+    margin: 50px;
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+}
+
+h3:hover:before {
+    width: 100%;
+}
+
+h3:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: auto; /*change here*/
+    right: 0;/*change here*/
+    width: 0;
+    height: 100%;
+    background-color: #e74c3c;
+    transition: .25s;
+    z-index: -1;
+  }
+  h3:hover:before {
+    width: 100%;
+    left: 0;/*change here*/
+    right: auto;/*change here*/
+  }

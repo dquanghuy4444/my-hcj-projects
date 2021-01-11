@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frosted Panel Demo</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	
+	<!-- Font is for demo purposes only -->
+	<link rel="preload" href="./fonts/Electrolize.woff2" as="font" crossorigin>
+	
+	<style type="text/css">
+		@font-face {
+			font-family: 'Electrolize';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Electrolize'), local('Electrolize-Regular'), 
+			url(./fonts/Electrolize.woff2) format('woff2'),
+			url(./fonts/Electrolize.woff) format('woff');
+			unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+	</style>
+</head>
+<body space-top-bot="50px">
+	<div class="frosted-panel" panel-dimensions="80% 60%" breakpoint-type="min-width" breakpoints="600px 80% 80%, 1200px 60% 500px">
+		<svg>
+			<filter id="blurMe" filterRes="1200" color-interpolation-filters="sRGB">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+			</filter>
+
+			<image xlink:href="./img/bg1.jpg" x="0" y="0" width="2880" height="1620" filter="url(#blurMe)" />
+		</svg>
+
+		<div class="content" content-margin="5px">
+			<!-- ALL PANEL CONTENT GOES HERE -->
+			<!-- .flex-container is for demo purposes only -->
+			<div class="flex-container">
+				<span class="wh">80% 60%</span>
+				<span class="wh">80% 80%</span>
+				<span class="wh">60% 500px</span>
+			</div>
+		</div>
+	</div>
+	
+	<script src="./app.js"></script>
+</body>
+</html>
