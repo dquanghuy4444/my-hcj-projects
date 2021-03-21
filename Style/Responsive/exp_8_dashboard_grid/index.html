@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  </head>
+  <body onresize="changeDesign()">
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-icon" onclick="toggleSidebar()">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="navbar__left">
+                <a href="#">Subsribers</a>
+                <a href="#">Video Management</a>
+                <a href="#" class="active-link">Admin</a>
+            </div>
+            <div class="navbar__right">
+                <a href="#">
+                    <i class="fa fa-search"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-clock-o"></i>
+                </a>
+                <a href="#">
+                    <img src="assets/avatar.svg" width="30" alt="">
+                </a>
+            </div>
+        </nav>
+
+        <main>
+            <div class="main-container">
+                <div class="title">
+                    <img src="assets/hello.svg" alt="">
+                    <div class="greeting">
+                        <h1>Hello Huy</h1>
+                        <p>Welcome to your admin dashboard</p>
+                    </div>
+                </div>
+
+                <div class="cards">
+                    <div class="card">
+                        <i class="fa fa-user-o fa-2x text-lightblue"></i>
+                        <div class="card__inner">
+                            <p class="text-primary-p">Number of subscribers</p>
+                            <span class="font-bold text-title">789</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <i class="fa fa-calendar fa-2x text-red"></i>
+                        <div class="card__inner">
+                            <p class="text-primary-p">Times of watching</p>
+                            <span class="font-bold text-title">789</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <i class="fa fa-camera fa-2x text-lightblue"></i>
+                        <div class="card__inner">
+                            <p class="text-primary-p">Number of videos</p>
+                            <span class="font-bold text-title">789</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <i class="fa fa-thumbs-up fa-2x text-lightblue"></i>
+                        <div class="card__inner">
+                            <p class="text-primary-p">Number of likes</p>
+                            <span class="font-bold text-title">789</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts">
+                    <div class="charts-left">
+                        <div class="charts-left__title">
+                            <div>
+                                <h1>Daily Reports</h1>
+                                <p>Co Nhue , Ha Noi</p>
+                            </div>
+                            <i class="fa fa-usd"></i>
+                        </div>
+                        <div id="apex1"></div>
+                    </div>
+
+                    <div class="charts-right">
+                        <div class="charts-right__title">
+                            <div>
+                                <h1>Star Reporrts</h1>
+                                <p>Co Nhue , Ha Noi</p>
+                            </div>
+                            <i class="fa fa-usd"></i>
+                        </div>
+
+                        <div class="charts-right__cards">
+                            <div class="card card-1">
+                                <h1>Income</h1>
+                                <p>$65,300</p>
+                            </div>
+                            <div class="card card-2">
+                                <h1>Sales</h1>
+                                <p>65,300</p>
+                            </div>
+                            <div class="card card-3">
+                                <h1>User</h1>
+                                <p>65,300</p>
+                            </div>
+                            <div class="card card-4">
+                                <h1>Orders</h1>
+                                <p>65,300</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="sidebar">
+            <div class="sidebar__title">
+                <div class="sidebar__img">
+                    <img src="assets/logo.png" alt="">
+                    <h1>Codersbite</h1>
+                </div>
+                <i class="fa fa-times sidebar__icon" onclick="closeSidebar()"></i>
+            </div>
+
+            <div class="sidebar__menu">
+                <div class="sidebar__link active-menu__link">
+                    <i class="fa fa-home"></i>
+                    <a href="#">Dashboard</a>
+                </div>
+                <h2>MMG</h2>
+                <div class="sidebar__link">
+                    <i class="fa fa-user-secret"></i>
+                    <a href="#">Admin Management</a>
+                </div>
+                <div class="sidebar__link">
+                    <i class="fa fa-building-o"></i>
+                    <a href="#">Company Management</a>
+                </div>
+                <div class="sidebar__link">
+                    <i class="fa fa-wrench"></i>
+                    <a href="#">Employee Management</a>
+                </div>
+                <div class="sidebar__link">
+                    <i class="fa fa-archive"></i>
+                    <a href="#">Warehouse</a>
+                </div>
+                <h2>LEAVE</h2>
+                <div class="sidebar__link">
+                    <i class="fa fa-question"></i>
+                    <a href="#">Requests</a>
+                </div>
+                <div class="sidebar__link">
+                    <i class="fa fa-sign-out"></i>
+                    <a href="#">Leave Policy</a>
+                </div>
+                <div class="sidebar__link">
+                    <i class="fa fa-calendar-check-o"></i>
+                    <a href="#">Special Days</a>
+                </div>
+                <div class="sidebar__link">
+                    <i class="fa fa-files-o"></i>
+                    <a href="#">Apply for leave</a>
+                </div>
+                <h2>PAYROLL</h2>
+                <div class="sidebar__link">
+                    <i class="fa fa-money"></i>
+                    <a href="#">Payroll</a>
+                </div>
+                <div class="sidebar__link">
+                    <i class="fa fa-briefcase"></i>
+                    <a href="#">Paygrade</a>
+                </div>
+                <div class="sidebar__logout">
+                    <i class="fa fa-power-off"></i>
+                    <a href="#">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
