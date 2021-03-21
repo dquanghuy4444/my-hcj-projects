@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+  }
+  
+  .container {
+    width: 100vw;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } 
+  
+  .container img {
+    position: absolute;
+  }
+  
+  .container h1 { 
+    font-size: 150px;
+    mix-blend-mode: overlay;
+  }

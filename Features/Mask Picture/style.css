@@ -1,0 +1,5 @@
+img {
+    width: 1000px;
+   -webkit-mask-image: radial-gradient(circle at 50%, black 50%, rgba(0, 0, 0, 0.2) 10%);
+    mask-image: radial-gradient(circle at 50%, black 50%, rgba(0, 0, 0, 0.2) 10%);
+  }
