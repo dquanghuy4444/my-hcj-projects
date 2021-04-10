@@ -1,0 +1,111 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+:root {
+    --color-bgr: #f5f5f5;
+    --color-white: #ffffff;
+    --color-dark: #252841;
+    --color-red: #dc3545;
+    --color-muted: #ff5773;
+    --color-blue: #4a90e2;
+    --indigo: #6610f2;
+    --spacing-3: 3rem;
+    --spacing-2: 2rem;
+    --spacing-1: 1rem;
+}
+body {
+    font-size: 1.6rem;
+    max-width: 90rem;
+    margin: 0 auto;
+    background-color: var(--color-bgr);
+}
+.review {
+    margin-top: var(--spacing-3);
+    overflow: hidden;
+}
+.header-content {
+    display: flex;
+    margin-bottom: var(--spacing-3);
+    align-items: center;
+    padding-right: 2rem;
+    font-family: monospace;
+}
+.nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+.nav i {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    font-size: 1.3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--color-dark);
+    color: var(--color-red);
+    cursor: pointer;
+    transition: transform 0.2s linear;
+}
+.nav i:hover {
+    transform: translateX(-2px);
+}
+.btnLeft {
+    margin-right: var(--spacing-1);
+}
+.review-box {
+    display: flex;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.box {
+    transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    border-radius: 5px;
+    text-align: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: var(--spacing-3) var(--spacing-2) var(--spacing-3);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+}
+.image {
+    position: relative;
+    width: 7rem;
+    height: 7rem;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: var(--spacing-2);
+}
+.image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.name {
+    position: relative;
+    color: var(--color-dark);
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+.text {
+    position: relative;
+    color: var(--color-muted);
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.designation {
+    color: var(--color-red);
+    margin-bottom: var(--spacing-1);
+    margin-top: var(--spacing-1);
+}
