@@ -1,0 +1,134 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    max-width: 1366px;
+    padding-top: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+}
+.navbar {
+    height: 50px;
+    background-color: #222222;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nav-item {
+    padding: 0 20px;
+    list-style: none;
+    transition: all 0.3s ease;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+.logo,
+.nav-item a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.nav-item.active a {
+    color: #db7676;
+}
+@media (max-width: 625px) {
+    .logo {
+        display: none;
+    }
+}
+
+.nav-item::before {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 5px;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%);
+    content: '';
+    transition: width 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+    background-color: rgb(255, 255, 255);
+}
+.nav-item.active::before {
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+}
+
+/* header */
+
+.header {
+    background-color: rgb(235, 235, 235);
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgb(70, 70, 70);
+}
+.header p {
+    margin-top: 20px;
+}
+
+#about,
+#services,
+#contact {
+    min-height: 500px;
+    padding: 50px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-margin-top: 50px;
+}
+
+#about h2,
+#services h2,
+#contact h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+.lead {
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+.container ul {
+    padding-left: 30px;
+    font-size: 18px;
+}
+#services {
+    background-color: rgb(226, 226, 226);
+}
+
+/* footer */
+.footer {
+    background-color: rgb(63, 63, 63);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    color: #fff;
+    flex-direction: column;
+}
