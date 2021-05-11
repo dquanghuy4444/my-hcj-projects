@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>jQuery SelectListActions</title>
+        <meta name="description" content="Select List Actions - jQuery Plugin" />
+        <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css" />
+        <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="jquery.selectlistactions.js"></script>
+
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>jQuery Dual-List</h1>
+            <div class="row style-select">
+                <div class="col-md-6">
+                    <label class="control-label">Superheroes</label>
+                    <select multiple class="form-control" id="StaffList">
+                        <option value="123">Superman</option>
+                        <option value="456">Batman</option>
+                        <option value="789">Spiderman</option>
+                        <option value="654">Captain America</option>
+                        <option value="856">Iron Man</option>
+                        <option value="765">Nick Fury</option>
+                        <option value="698">The Hulk</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3 add-btns">
+                            <input type="button" id="btnAvenger" value="Add Avenger" class="btn btn-default" />
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <label class="control-label">Avengers</label>
+                            <div class="selected-left">
+                                <select multiple class="form-control" id="PresenterList">
+                                    
+                                </select>
+                            </div>
+                            <div class="selected-right">
+                                <button type="button" class="btn btn-default btn-sm" id="btnAvengerUp">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm" id="btnAvengerDown">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm" id="btnRemoveAvenger">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3 add-btns">
+                            <input type="button" id="btnShield" value="Add S.H.I.E.L.D." class="btn btn-default" />
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <label class="control-label">S.H.I.E.L.D.</label>
+                            <div class="selected-left">
+                                <select multiple class="form-control" id="ContactList">
+                                   
+                                </select>
+                            </div>
+                            <div class="selected-right">
+                                <button type="button" class="btn btn-default btn-sm" id="btnShieldUp">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm" id="btnShieldDown">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm" id="btnRemoveShield">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3 add-btns">
+                            <input type="button" id="btnJusticeLeague" value="Add Justice League" class="btn btn-default" />
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <label class="control-label">Justice League</label>
+                            <div class="selected-left">
+                                <select multiple class="form-control" id="FacilitatorList"> </select>
+                            </div>
+                            <div class="selected-right">
+                                <button type="button" class="btn btn-default btn-sm" id="btnJusticeLeagueUp">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm" id="btnJusticeLeagueDown">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm" id="btnRemoveJusticeLeague">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>&nbsp;</p>
+        </div>
+
+        <script>
+            $("#btnAvenger").click(function (e) {
+                $("select").moveToList("#StaffList", "#PresenterList");
+                e.preventDefault();
+            });
+
+            $("#btnRemoveAvenger").click(function (e) {
+                $("select").removeSelected("#PresenterList");
+                e.preventDefault();
+            });
+
+            $("#btnAvengerUp").click(function (e) {
+                $("select").moveUpDown("#PresenterList", true, false);
+                e.preventDefault();
+            });
+
+            $("#btnAvengerDown").click(function (e) {
+                $("select").moveUpDown("#PresenterList", false, true);
+                e.preventDefault();
+            });
+
+            $("#btnShield").click(function (e) {
+                $("select").moveToList("#StaffList", "#ContactList");
+                e.preventDefault();
+            });
+
+            $("#btnRemoveShield").click(function (e) {
+                $("select").removeSelected("#ContactList");
+                e.preventDefault();
+            });
+
+            $("#btnShieldUp").click(function (e) {
+                $("select").moveUpDown("#ContactList", true, false);
+                e.preventDefault();
+            });
+
+            $("#btnShieldDown").click(function (e) {
+                $("select").moveUpDown("#ContactList", false, true);
+                e.preventDefault();
+            });
+
+            $("#btnJusticeLeague").click(function (e) {
+                $("select").moveToList("#StaffList", "#FacilitatorList");
+                e.preventDefault();
+            });
+
+            $("#btnRemoveJusticeLeague").click(function (e) {
+                $("select").removeSelected("#FacilitatorList");
+                e.preventDefault();
+            });
+
+            $("#btnJusticeLeagueUp").click(function (e) {
+                $("select").moveUpDown("#FacilitatorList", true, false);
+                e.preventDefault();
+            });
+
+            $("#btnJusticeLeagueDown").click(function (e) {
+                $("select").moveUpDown("#FacilitatorList", false, true);
+                e.preventDefault();
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--icon style sheet-->
+	<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css.css">
+</head>
+<body>
+	<div class="container">
+		<h2>Random Password </h2>
+		<div class="result-container">
+			<span id="result"></span>
+			<button class="btn" id="clipboard">
+				<i class="fa fa-clipboard"></i>
+			</button>
+		</div>
+		<div class="settings">
+			<div class="setting all">
+				<div class="length range__slider">
+			<div class="length__title field-title">length:</div> 
+			 
+				<input type="range" id="length" min='4' max='20' value='20' />
+				<!--<input id="length" type="range" min="4" max="32" value="16" />-->
+			</div>
+			</div>
+			<div class="setting">
+				<label>Include uppercase letters</label> 
+				<input type="checkbox" id="uppercase" checked />
+			</div>
+			<div class="setting">
+				<label>Include lowercase letters</label> 
+				<input type="checkbox" id="lowercase" checked />
+			</div>
+			<div class="setting">
+				<label>Include numbers</label> 
+				<input type="checkbox" id="numbers" checked />
+			</div>
+			<div class="setting">
+				<label>Include symbols</label> 
+				<input type="checkbox" id="symbols" checked />
+			</div>
+		  
+	
+	 
+		</div>
+		<button class="btn btn-large" id="generate">
+			Generate password
+		</button>
+	</div>
+	
+	
+
+	<!--=========== JavaScript Code ===========-->
+	<script>
+
+		
+
+const resultEl = document.getElementById('result');
+const lengthEl = document.getElementById('length');
+const uppercaseEl = document.getElementById('uppercase');
+const lowercaseEl = document.getElementById('lowercase');
+const numbersEl = document.getElementById('numbers');
+const symbolsEl = document.getElementById('symbols');
+const generateEl = document.getElementById('generate');
+const clipboard = document.getElementById('clipboard');
+
+const randomFunc = {
+	lower: getRandomLower,
+	upper: getRandomUpper,
+	number: getRandomNumber,
+	symbol: getRandomSymbol
+}
+
+clipboard.addEventListener('click', () => {
+	const textarea = document.createElement('textarea');
+	const password = resultEl.innerText;
+	
+	if(!password) { return; }
+	
+	textarea.value = password;
+	document.body.appendChild(textarea);
+	textarea.select();
+	document.execCommand('copy');
+	textarea.remove();
+	alert('Password copied to clipboard');
+});
+
+generate.addEventListener('click', () => {
+	const length = +lengthEl.value;
+	const hasLower = lowercaseEl.checked;
+	const hasUpper = uppercaseEl.checked;
+	const hasNumber = numbersEl.checked;
+	const hasSymbol = symbolsEl.checked;
+	
+	resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+});
+
+function generatePassword(lower, upper, number, symbol, length) {
+	let generatedPassword = '';
+	const typesCount = lower + upper + number + symbol;
+	const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
+	
+	// Doesn't have a selected type
+	if(typesCount === 0) {
+		return '';
+	}
+	
+	// create a loop
+	for(let i=0; i<length; i+=typesCount) {
+		typesArr.forEach(type => {
+			const funcName = Object.keys(type)[0];
+			generatedPassword += randomFunc[funcName]();
+		});
+	}
+	
+	const finalPassword = generatedPassword.slice(0, length);
+	
+	return finalPassword;
+}
+
+function getRandomLower() {
+	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+
+function getRandomUpper() {
+	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+function getRandomNumber() {
+	return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+
+function getRandomSymbol() {
+	const symbols = '!@#$%^&*(){}[]=<>/,.'
+	return symbols[Math.floor(Math.random() * symbols.length)];
+}
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
