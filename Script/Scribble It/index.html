@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        #root {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #user-list {
+            width: 10%;
+            border: 2px solid gray;
+        }
+
+        #sketch {
+            width: 68%;
+            height: 500px;
+            border: 2px solid gray;
+        }
+
+        #tool-bar {
+            margin-top: 5px;
+            height: fit-content;
+            border: 2px solid gray;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        #chat-pane {
+            width: 19%;
+            border: 2px solid gray;
+        }
+
+        #chat-box {
+            margin: 0;
+            padding: 0;
+            height: 500px;
+            overflow: auto;
+            list-style-type: none;
+        }
+
+        #chat-box>li {
+            padding: 0.5rem 1rem;
+        }
+
+        #chat-box>li:nth-child(odd) {
+            background: #efefef;
+        }
+
+        #chat-form {
+            width: 100%;
+            padding: 0.25rem;
+            display: flex;
+            box-sizing: border-box;
+        }
+
+        #chat-input {
+            width: 75%;
+        }
+
+        #chat-form>button {
+            width: 25%;
+            background: #333;
+            border: none;
+            border-radius: 3px;
+            outline: none;
+            color: #fff;
+        }
+    </style>
+</head>
+
+</html>
+
+</style>
+</head>
+
+<body>
+    <h2 style="text-align: center; font-family: cursive; margin: 10px;">Scribble It!</h2>
+    <div id="root">
+        <div id="user-list">
+            User list
+        </div>
+        <div id="sketch">
+            <canvas id="board">
+            </canvas>
+            <div id="tool-bar">
+                <input id="color" type="color" value="#0447C3">
+                <select id="shape">
+                    <option value="pen" selected>Bút</option>
+                    <option value="line">Đường</option>
+                    <option value="circle">Tròn</option>
+                    <option value="rec">Chữ nhật</option>
+                </select>
+                <input id="width" type="range" value="5" min="1" max="50">
+                <button class="tool-btn" onclick="clearBoard(true)">
+                    Clear
+                </button>
+            </div>
+        </div>
+        <div id="chat-pane">
+            <ul id="chat-box">
+            </ul>
+            <form id="chat-form" action="">
+                <input id="chat-input" autocomplete="off" /><button>Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        function timeout(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        socket.on('init', async function (points) {
+            for (let i = 0; i < points.length; i++) {
+                const point = points[i];
+                await timeout(1);
+                drawBoard(point.last_mouse, point.mouse, point.pen);
+
+            }
+        });
+    </script>
+    <script>
+        var form = document.getElementById('chat-form');
+        var input = document.getElementById('chat-input');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (input.value) {
+                socket.emit('chat message', input.value);
+                addMessage(input.value);
+                input.value = '';
+            }
+        });
+
+        socket.on('chat message', function (msg) {
+            addMessage(msg);
+        });
+
+        socket.on('board data', function (point) {
+            drawBoard(point.last_mouse, point.mouse, point.pen);
+        });
+
+        socket.on('clear board', function (data) {
+            clearBoard();
+        });
+
+
+    </script>
+    <script>
+        const PEN = "pen";
+        const LINE = "line";
+        const CIRCLE = "circle";
+        const RECTANGLE = "rec";
+
+        var shape = PEN;
+
+        var canvas = document.querySelector('#board');
+        var ctx = canvas.getContext('2d');
+
+
+        var sketch = document.querySelector('#sketch');
+        var sketch_style = getComputedStyle(sketch);
+        canvas.width = parseInt(sketch_style.getPropertyValue('width'));
+        canvas.height = parseInt(sketch_style.getPropertyValue('height'));
+
+        // Cấu hình canvas context để vẽ lên canvas
+        ctx.lineWidth = 5;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = 'blue';
+
+        var colorPicker = document.querySelector('#color');
+        var widthPicker = document.querySelector('#width');
+        var shapePicker = document.querySelector('#shape');
+
+        var mouse = { x: 0, y: 0 };
+        var last_mouse = { x: 0, y: 0 };
+
+        colorPicker.addEventListener('change', function (e) {
+            ctx.strokeStyle = e.target.value;
+        })
+        widthPicker.addEventListener('change', function (e) {
+            ctx.lineWidth = e.target.value;
+        })
+        shapePicker.addEventListener('change', function (e) {
+            console.log(e.target.value)
+            shape = e.target.value
+        })
+
+        // Lắng nghe sự kiện di chuyển chuột trên canvas để lưu lại điểm di chuyển
+        canvas.addEventListener('mousemove', function (e) {
+            last_mouse.x = mouse.x;
+            last_mouse.y = mouse.y;
+
+            mouse.x = e.pageX - this.offsetLeft;
+            mouse.y = e.pageY - this.offsetTop;
+        }, false);
+
+        var start = {};
+        var mouseDownFunction = () => {
+            canvas.addEventListener('mousemove', onDraw, false);
+            start.x = last_mouse.x;
+            start.y = last_mouse.y;
+            if (shape !== PEN) {
+                ctx.beginPath();
+                ctx.moveTo(start.x, start.y);
+                ctx.lineTo(mouse.x, mouse.y);
+                ctx.stroke();
+            }
+        }
+        // Bắt đầu vẽ khi có sự kiện mousedown - nhấn chuột trái
+        canvas.addEventListener('mousedown', mouseDownFunction, false);
+
+
+        var mouseUpFunction = () => {
+            canvas.removeEventListener('mousemove', onDraw, false);
+            if (shape === CIRCLE) {
+                drawCircle(start, mouse);
+            } else if (shape === LINE) {
+                drawLine(start, mouse);
+            } else if (shape === RECTANGLE) {
+                drawRectangle(start, mouse);
+            }
+            if (shape !== PEN) {
+                socket.emit('board data', {
+                    last_mouse: start,
+                    mouse,
+                    pen: {
+                        color: ctx.strokeStyle,
+                        width: ctx.lineWidth,
+                        shape
+                    }
+                });
+            }
+        }
+        // Ngừng vẽ khi có sự kiện mouseup - nhả chuột trái
+        canvas.addEventListener('mouseup', mouseUpFunction, false);
+
+    </script>
+    <script>
+        var onDraw = function () {
+            if (shape === PEN) {
+                drawLine(last_mouse, mouse)
+                socket.emit('board data', {
+                    last_mouse,
+                    mouse,
+                    pen: {
+                        color: ctx.strokeStyle,
+                        width: ctx.lineWidth,
+                        shape
+                    }
+                });
+            }
+        };
+
+        function addMessage(msg) {
+            var box = document.getElementById('chat-box');
+            var item = document.createElement('li');
+            item.textContent = msg;
+            box.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+        function clearBoard(broadcast = false) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (broadcast) socket.emit('clear board');
+        }
+        function drawLine(last_point, point, pen) {
+            ctx.beginPath();
+            ctx.moveTo(last_point.x, last_point.y);
+            ctx.lineTo(point.x, point.y);
+            ctx.closePath();
+            ctx.stroke();
+        }
+        function drawCircle(last_point, point, pen) {
+            ctx.beginPath();
+            ctx.arc(
+                Math.floor((point.x + last_point.x) / 2),
+                Math.floor((point.y + last_point.y) / 2),
+                Math.floor(Math.sqrt((last_point.x - point.x) * (last_point.x - point.x) + (last_point.y - point.y) * (last_point.y - point.y)) / 2), 0, 2 * Math.PI);
+            ctx.stroke();
+        }
+        function drawRectangle(last_point, point, pen) {
+            ctx.beginPath();
+            ctx.rect(last_point.x, last_point.y, point.x - last_point.x, point.y - last_point.y);
+            ctx.stroke();
+        }
+        function drawBoard(last_point, point, pen) {
+            if (last_point && point) {
+                const previousWidth = ctx.lineWidth;
+                const previousColor = ctx.strokeStyle;
+                if (pen) {
+                    ctx.lineWidth = pen.width;
+                    ctx.strokeStyle = pen.color;
+                }
+                switch (pen.shape) {
+                    case PEN:
+                    case LINE:
+                        drawLine(last_point, point, pen);
+                        break;
+                    case CIRCLE:
+                        drawCircle(last_point, point, pen);
+                        break;
+                    case RECTANGLE:
+                        drawRectangle(last_point, point, pen);
+                        break;
+                    default:
+                        drawLine(last_point, point, pen);
+                        break;
+                }
+                ctx.lineWidth = previousWidth;
+                ctx.strokeStyle = previousColor;
+            }
+        }
+    </script>
+</body>
+
+</html>
