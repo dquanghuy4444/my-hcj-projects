@@ -1,0 +1,234 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+}
+
+.btn{
+    padding:10px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #ffa0a0;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    -ms-border-radius:4px;
+    -o-border-radius:4px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+
+    &.disabled{
+        background-color: #f37777;
+
+    }
+
+    &:hover
+    {
+        background-color: #de7b7b;
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        color: #fecfef;
+    }
+
+    &:active{
+        transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    }
+}
+
+.d-flex{
+    display: flex;
+}
+
+.gap-default{
+    gap: 20px;
+}
+
+.countdown-clock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background-color: #fff;
+    width: 350px;
+    height: 350px;
+    border-radius:12px;
+    -webkit-border-radius:12px;
+    -moz-border-radius:12px;
+    -ms-border-radius:12px;
+    -o-border-radius:12px;
+    padding: 12px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+
+    &:hover
+    {
+        top: 49%;
+    }
+
+    .top{
+        display: flex;
+        height:40%;
+
+        .config{
+            height:100%;
+            width: 60%;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .options{
+            height:100%;
+            width: 40%;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+
+            .btn{
+                width: 100px;
+                border: none;
+
+                &.primary{
+                    background-color: #ff4444;
+                }
+
+                &.secondary{
+                    background-color: #ac7878;
+                }
+            }
+        }
+    }
+
+    .mid{
+        height:60%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .clock{
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            border:#de7b7b 2px solid;
+
+            .center{
+                position:absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+                width: 8px;
+                height: 8px;
+                background-color: red;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+            }
+
+            .second-hand{
+                position:absolute;
+                top: 0;
+                left: calc(50% - 1px);
+                width: 2px;
+                height: 50%;
+                background-color: rgb(173, 83, 83);
+                transform: rotate(0);
+                -webkit-transform: rotate(0);
+                -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                -o-transform: rotate(0);
+                transform-origin: 50% 100%;
+            }
+
+            .minute-hand{
+                position:absolute;
+                top: 25%;
+                left: calc(50% - 1px);
+                width: 2px;
+                height: 25%;
+                background-color: #0a0a08;
+                transform: rotate(0);
+                -webkit-transform: rotate(0);
+                -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                -o-transform: rotate(0);
+                transform-origin: 50% 100%;
+}
+        }
+
+        .process{
+            width: 280px;
+            height: 20px;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+            border: 1px solid #de7b7b;
+
+            .wrapper{
+                height: 100%;
+                width: 100%;
+                background-color: #b73333;
+                border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+                transition: all 0.6s;
+                -webkit-transition: all 0.6s;
+                -moz-transition: all 0.6s;
+                -ms-transition: all 0.6s;
+                -o-transition: all 0.6s;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1024px) and (min-width: 767px){
+        width: 80%;
+        height: 400px;
+    }
+
+    @media screen and (max-width: 766px) and (min-width: 300px){
+        width: 90%;
+        height: 350px;
+    }
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    </head>
+    <body>
+        <section class="countdown-clock">
+            <div class="top">
+                <div class="config d-flex ">
+                    <div class="plus d-flex gap-default">
+                        <i class="uil uil-plus btn" id="plus-minute"></i>
+                        <i class="uil uil-plus btn" id="plus-second"></i>
+                    </div>
+                    <div class="time d-flex gap-default">
+                        <span id="num-minute">0</span>
+                        <span>:</span>
+                        <span id="num-second">0</span>
+                    </div>
+                    <div class="minus d-flex gap-default">
+                        <i class="uil uil-minus btn" id="minus-minute"></i>
+                        <i class="uil uil-minus btn" id="minus-second"></i>
+                    </div>
+                </div>
+                <div class="options d-flex gap-default">
+                    <button class="btn primary" id="start">
+                        <i class="uil uil-play"></i>Start
+                    </button>
+                    <button class="btn secondary"  id="reset">
+                        <i class="uil uil-history"></i>
+                        Reset
+                    </button>
+                </div>
+            </div>
+            <div class="mid d-flex gap-default">
+                <div class="clock">
+                    <div class="center"></div>
+                    <div class="second-hand" id="second-hand"></div>
+                    <div class="minute-hand" id="minute-hand"></div>
+                </div>
+                <div class="process">
+                    <div class="wrapper" id="process-wrapper"></div>
+                </div>
+            </div>
+            
+        </section>
+        
+        <script src="script.js"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
