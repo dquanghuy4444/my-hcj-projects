@@ -1,0 +1,442 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 18px;
+  color: #777;
+}
+
+.line {
+  line-height: 8px;
+}
+
+.line .line-1 {
+  width: 16px;
+  height: 16px;
+  background: #f67c92;
+  display: inline-block;
+}
+
+.line .line-2 {
+  width: 80px;
+  height: 1px;
+  background: #f67c92;
+  display: inline-block;
+}
+
+.line .line-3 {
+  width: 60px;
+  height: 1px;
+  background: #f67c92;
+  display: inline-block;
+}
+
+.common-btn {
+  padding: 18px 40px;
+  background: transparent;
+  outline: none;
+  border: 2px solid #f67c92;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
+
+#header {
+  height: 100vh;
+  background-image: url(./images/background.png);
+  background-position: center;
+  background-size: cover;
+}
+
+#header .container {
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+#header .container .logo {
+  margin-top: 32px;
+  width: 100px;
+}
+
+#header .container .header-text {
+  max-width: 360px;
+  margin-top: 120px;
+}
+
+#header .container .header-text .square {
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+  background: #f67c92;
+  margin: 16px 0;
+}
+
+#side-nav {
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  right: -250px;
+  top: 0;
+  background: #f67c92;
+  z-index: 1;
+}
+
+#side-nav.active {
+  right: 0;
+}
+
+#side-nav ul li {
+  list-style: none;
+  margin: 50px 20px;
+}
+
+#side-nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+#menu-btn {
+  width: 50px;
+  position: fixed;
+  right: 20px;
+  top: 36px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+#about {
+  padding: 100px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#about .about-left-col {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+#about .about-left-col img {
+  width: 100%;
+}
+
+#about .about-right-col {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  text-align: right;
+}
+
+#about .about-right-col .about-text {
+  max-width: 500px;
+  margin-right: 100px;
+  display: inline-block;
+}
+
+#about .about-right-col .about-text h2 {
+  margin: 50px 0 10px;
+  font-size: 32px;
+}
+
+#about .about-right-col .about-text h3 {
+  font-size: 20px;
+  font-style: italic;
+  color: #797979;
+}
+
+#features {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#features .row {
+  width: 80%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#features .row .col {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  text-align: center;
+}
+
+#features .row .col h4 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#features .row .col img {
+  width: 100%;
+}
+
+#features .feature-btn {
+  margin: 80px auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#features .feature-btn .common-btn {
+  margin: 0;
+}
+
+#features .feature-btn .line {
+  text-align: right;
+  display: inline-block;
+  margin-right: 24px;
+}
+
+#courses {
+  padding: 100px 0;
+}
+
+#courses .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#courses .row .left-col {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+#courses .row .right-col {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+#courses .row .right-col img {
+  width: 100%;
+}
+
+#footer {
+  padding: 50px 30px 0;
+}
+
+#footer hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #f67c92;
+}
+
+#footer .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 12px;
+}
+
+#footer .row .left-col {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  margin-top: 60px;
+}
+
+#footer .row .left-col .link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#footer .row .left-col .link__title h4 {
+  color: #fab3c4;
+  margin-bottom: 20px;
+}
+
+#footer .row .left-col .link__title small {
+  font-size: 12px;
+  color: #777;
+}
+
+#footer .row .right-col {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+}
+
+#footer .row .right-col .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#footer .row .right-col .info .copyright-text {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+}
+
+#footer .row .right-col .info .logo {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#footer .row .right-col .info .logo img {
+  width: 100px;
+}
+
+#footer .row .right-col .info .logo button {
+  padding: 12px 36px;
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  #header {
+    height: 70vh;
+    background-image: none;
+  }
+  #header .container {
+    margin: 0 40px;
+  }
+  #header .container .header-text {
+    margin-top: 60px;
+  }
+  #header .container .logo {
+    margin-top: 24px;
+  }
+  #header .container .common-btn {
+    margin-bottom: 40px;
+  }
+  #about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-top: 140px;
+  }
+  #about img {
+    width: 80%;
+  }
+  #about .about-right-col {
+    margin-top: 20px;
+  }
+  #about .about-right-col .about-text {
+    margin-left: 24px;
+    margin-right: 24px;
+    text-align: center;
+  }
+  #features {
+    padding: 0 12px 0;
+  }
+  #features .row {
+    width: 100%;
+  }
+  #features .row .col {
+    -ms-flex-preferred-size: 49%;
+        flex-basis: 49%;
+  }
+  #courses {
+    padding: 80px 0 40px 0;
+  }
+  #courses .row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 32px;
+  }
+  #courses .row .left-col {
+    padding: 0 24px;
+    text-align: center;
+  }
+  #courses .row .right-col {
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+  }
+  #courses .row .right-col img {
+    width: 80%;
+  }
+  #footer {
+    padding: 40px 12px 0;
+  }
+  #footer .container.row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: inherit;
+        -ms-flex-align: inherit;
+            align-items: inherit;
+  }
+  #footer .container.row .left-col {
+    margin-top: 12px;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
