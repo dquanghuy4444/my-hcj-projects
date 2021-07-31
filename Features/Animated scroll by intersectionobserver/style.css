@@ -1,0 +1,116 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #5dafb8;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card {
+    height: 50vh;
+    border-radius: 13px;
+    box-shadow: 20px 40px 33px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    width: 35vh;
+    background-color: #6cc2ce;
+
+}
+
+/* Style a div with gradient as Background image */
+.image {
+    width: 35vh;
+    height: 20vh;
+    background-image: linear-gradient(70deg, RoyalBlue, DarkTurquoise);
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 10px 15px 15px 6px #3891b4;
+    border-radius: 15px;
+    /* Animate image */
+    /*     animation: animImage 2s infinite; */
+}
+
+
+.card h2 {
+    /* Amimate Heading */
+    /*     animation: animTitle 2s infinite; */
+}
+
+.card p {
+    /* Animate Paragraph */
+    /*     animation: animContent 2s infinite; */
+}
+
+
+
+@keyframes animTitle {
+    from {
+        /* Add starting values for animation */
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    to {
+        /* Add Ending values for animation */
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes animContent {
+    from {
+        /* Add starting values for animation */
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    to {
+        /* Add Ending values for animation */
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+@keyframes animImage {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.25, 0.75, 1);
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        -webkit-transform: scale3d(0.75, 1.25, 1);
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.15, 0.85, 1);
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        -webkit-transform: scale3d(0.95, 1.05, 1);
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.05, 0.95, 1);
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}

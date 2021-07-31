@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="card">
+            <div class="image animate" data-animate="animImage 2s"></div>
+            <h2 class="animate" data-animate="animTitle 2s ">Profile picture</h2>
+            <p class="animate" data-animate="animContent 2s ">Some text goes here.Some text goes here....</p>
+
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="card">
+            <div class="image animate" data-animate="animImage 2s"></div>
+            <h2 class="animate" data-animate="animTitle 2s ">Profile picture</h2>
+            <p class="animate" data-animate="animContent 2s ">Some text goes here.Some text goes here....</p>
+
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="card">
+            <div class="image animate" data-animate="animImage 2s"></div>
+            <h2 class="animate" data-animate="animTitle 2s ">Profile picture</h2>
+            <p class="animate" data-animate="animContent 2s ">Some text goes here.Some text goes here....</p>
+
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="card">
+            <div class="image animate" data-animate="animImage 2s"></div>
+            <h2 class="animate" data-animate="animTitle 2s ">Profile picture</h2>
+            <p class="animate" data-animate="animContent 2s ">Some text goes here.Some text goes here....</p>
+
+        </div>
+    </div>
+
+    <script>
+        const callback = (entries) => {
+            //Step 4
+            // The entries variable will contain the list of
+            // elements that you are observing. When ever 
+            // intersection occurs, you need to do forEach loop 
+            // to find which one intersected. 
+            // For this we check a flag on the element called "isIntersecting"
+            entries.forEach(
+                (entry) => {
+                    if (entry.isIntersecting) {
+                        console.log("The element is intersecting >");
+                        //If intersecting then attach keyframe animation.
+                        //We do this by assigning the data attribute 
+                        //we coded in the markup to the style.animation 
+                        //of the element
+                        entry.target.style.animation =
+                            entry.target.dataset.animate;
+                    } else {
+                        //We take of the animation if not in view
+                        entry.target.style.animation = "none";
+                    }
+                }
+            );
+        }
+
+        //1] Create a new intersectionObserver object, 
+        //which will accept a callback function as 
+        //a parameter.
+
+        let observer = new IntersectionObserver(callback);
+
+
+        //2]Select all elements that have ".animate" 
+        //class.In our case we have three 
+        //elements (.image,<p> and h<2>).
+
+        const animationItems = document.querySelectorAll('.animate');
+
+
+        //3]Loop through selected elements and add to the
+        //observer watch list.      
+
+        animationItems.forEach(item => {
+            observer.observe(item)
+        })
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
