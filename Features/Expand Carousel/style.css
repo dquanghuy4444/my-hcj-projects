@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.list {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px;
+}
+.item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+	height: 300px;
+	background: url("https://photo-cms-plo.zadn.vn/w800/Uploaded/2021/wcbaqlm3/5984_avatarjpg.jpg") no-repeat center;
+	background-size: cover;
+	transition-duration: .5s;
+}
+.item.span {
+	flex: 1.5 !important;
+}
